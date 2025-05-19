@@ -1,72 +1,49 @@
 .travel-container {
-  padding: 120px 20px;
-  background-color: #141414;
-  color: #fff;
+  padding: 2rem;
 }
 
 .travel-title {
-  font-size: 2.5rem;
-  color: #e50914;
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
 }
 
 .travel-timeline {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
 .travel-card {
-  display: flex;
-  background: #1e1e1e;
+  background: white;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.travel-card:hover {
-  transform: translateX(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .travel-image {
-  width: 300px;
+  width: 100%;
   height: 200px;
   object-fit: cover;
 }
 
 .travel-content {
   padding: 1.5rem;
-  flex: 1;
 }
 
 .travel-content h3 {
-  font-size: 1.5rem;
-  color: #e50914;
-  margin-bottom: 0.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
 }
 
 .travel-date {
-  display: inline-block;
+  color: #666;
   font-size: 0.9rem;
-  color: #999;
-  margin-bottom: 1rem;
 }
 
 .travel-content p {
-  color: #ccc;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .travel-card {
-    flex-direction: column;
-  }
-
-  .travel-image {
-    width: 100%;
-    height: 200px;
-  }
+  margin-top: 1rem;
+  color: #555;
+  line-height: 1.5;
 }
