@@ -3,17 +3,16 @@ import { Routes, Route } from 'react-router-dom';
 import NetflixTitle from './NetflixTitle';
 import ProfilePage from './profilePage/profilePage';
 import Browse from './browse/browse';
-import WorkPermit from './pages/WorkPermit';
-import WorkExperience from './pages/WorkExperience';
-import Recommendations from './pages/Recommendations';
-import Skills from './pages/Skills';
-import Projects from './pages/Projects';
-import ContactMe from './pages/ContactMe';
 import Layout from './Layout';
-import Music from './pages/Music';
-import Reading from './pages/Reading';
+import VideoProjects from './pages/VideoProjects';
+import GraphicDesign from './pages/GraphicDesign';
+import Organizations from './pages/Organizations';
+import Papers from './pages/Papers';
 import Blogs from './pages/Blogs';
-import Certifications from './pages/Certifications';
+import Education from './pages/Education';
+import Travel from './pages/Travel';
+import Photography from './pages/Photography';
+import Adventures from './pages/Adventures';
 
 const App: React.FC = () => {
   return (
@@ -21,16 +20,15 @@ const App: React.FC = () => {
       <Route path="/" element={<NetflixTitle />} />
       <Route path="/browse" element={<Browse />} />
       <Route path="/profile/:profileName" element={<Layout><ProfilePage /></Layout>} />
-      <Route path="/work-permit" element={<Layout><WorkPermit /></Layout>} />
-      <Route path="/work-experience" element={<Layout><WorkExperience /></Layout>} />
-      <Route path="/recommendations" element={<Layout><Recommendations /></Layout>} />
-      <Route path="/skills" element={<Layout><Skills /></Layout>} />
-      <Route path="/projects" element={<Layout><Projects /></Layout>} />
-      <Route path="/contact-me" element={<Layout><ContactMe /></Layout>} />
-      <Route path="/music" element={<Layout><Music /></Layout>} />
-      <Route path="/reading" element={<Layout><Reading /></Layout>} />
+      <Route path="/video-projects" element={<Layout><VideoProjects /></Layout>} />
+      <Route path="/graphic-design" element={<Layout><GraphicDesign /></Layout>} />
+      <Route path="/organizations" element={<Layout><Organizations /></Layout>} />
+      <Route path="/papers" element={<Layout><Papers /></Layout>} />
       <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
-      <Route path="/certifications" element={<Layout><Certifications /></Layout>} />
+      <Route path="/education" element={<Layout><Education /></Layout>} />
+      <Route path="/travel" element={<Layout><Travel /></Layout>} />
+      <Route path="/photography" element={<Layout><Photography /></Layout>} />
+      <Route path="/adventures" element={<Layout><Adventures /></Layout>} />
     </Routes>
   );
 };

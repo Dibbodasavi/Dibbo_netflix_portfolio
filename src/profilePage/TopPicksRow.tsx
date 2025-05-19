@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopPicksRow.css';
-import { FaPassport, FaCode, FaBriefcase, FaCertificate, FaHandsHelping, FaProjectDiagram, FaEnvelope, FaMusic, FaBook } from 'react-icons/fa';
+import { FaVideo, FaPalette, FaBriefcase, FaGraduationCap, FaNewspaper, FaGlobeAmericas, FaCamera } from 'react-icons/fa';
 
-type ProfileType = 'recruiter' | 'developer' | 'stalker' | 'adventure';
+type ProfileType = 'recruiter' | 'academic' | 'explorer';
 
 interface TopPicksRowProps {
   profile: ProfileType;
@@ -11,38 +11,21 @@ interface TopPicksRowProps {
 
 const topPicksConfig = {
   recruiter: [
-    { title: "Work Permit", imgSrc: "https://picsum.photos/seed/workpermit/250/200", icon: <FaPassport />, route: "/work-permit" },
-    { title: "Skills", imgSrc: "https://picsum.photos/seed/skills/250/200", icon: <FaCode />, route: "/skills" },
-    { title: "Experience", imgSrc: "https://picsum.photos/seed/workexperience/250/200", icon: <FaBriefcase />, route: "/work-experience" },
-    { title: "Certifications", imgSrc: "https://picsum.photos/seed/certifications/250/200", icon: <FaCertificate />, route: "/certifications" },
-    { title: "Recommendations", imgSrc: "https://picsum.photos/seed/recommendations/250/200", icon: <FaHandsHelping />, route: "/recommendations" },
-    { title: "Projects", imgSrc: "https://picsum.photos/seed/projects/250/200", icon: <FaProjectDiagram />, route: "/projects" },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/seed/contact/250/200", icon: <FaEnvelope />, route: "/contact-me" }
+    { title: "Video Projects", imgSrc: "https://picsum.photos/seed/video/250/200", icon: <FaVideo />, route: "/video-projects" },
+    { title: "Graphic Design", imgSrc: "https://picsum.photos/seed/design/250/200", icon: <FaPalette />, route: "/graphic-design" },
+    { title: "Organizations", imgSrc: "https://picsum.photos/seed/orgs/250/200", icon: <FaBriefcase />, route: "/organizations" }
   ],
-  developer: [
-    { title: "Skills", imgSrc: "https://picsum.photos/seed/coding/250/200", route: "/skills", icon: <FaCode /> },
-    { title: "Projects", imgSrc: "https://picsum.photos/seed/development/250/200", route: "/projects", icon: <FaProjectDiagram /> },
-    { title: "Certifications", imgSrc: "https://picsum.photos/seed/badge/250/200", route: "/certifications", icon: <FaCertificate /> },
-    { title: "Experience", imgSrc: "https://picsum.photos/seed/work/250/200", route: "/work-experience", icon: <FaBriefcase /> },
-    { title: "Recommendations", imgSrc: "https://picsum.photos/seed/networking/250/200", route: "/recommendations", icon: <FaHandsHelping /> },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/seed/connect/250/200", route: "/contact-me", icon: <FaEnvelope /> }
+  academic: [
+    { title: "Published Papers", imgSrc: "https://picsum.photos/seed/papers/250/200", icon: <FaGraduationCap />, route: "/papers" },
+    { title: "Blog Posts", imgSrc: "https://picsum.photos/seed/blogs/250/200", icon: <FaNewspaper />, route: "/blogs" },
+    { title: "Academic Background", imgSrc: "https://picsum.photos/seed/academic/250/200", icon: <FaGraduationCap />, route: "/education" }
   ],
-  stalker: [
-    { title: "Recommendations", imgSrc: "https://picsum.photos/seed/networking/250/200", route: "/recommendations", icon: <FaHandsHelping /> },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/seed/call/250/200", route: "/contact-me", icon: <FaEnvelope /> },
-    { title: "Projects", imgSrc: "https://picsum.photos/seed/planning/250/200", route: "/projects", icon: <FaProjectDiagram /> },
-    { title: "Experience", imgSrc: "https://picsum.photos/seed/resume/250/200", route: "/work-experience", icon: <FaBriefcase /> },
-    { title: "Certifications", imgSrc: "https://picsum.photos/seed/achievements/250/200", route: "/certifications", icon: <FaCertificate /> },
-  ],
-  adventure: [
-    { title: "Music", imgSrc: "https://picsum.photos/seed/music/250/200", route: "/music", icon: <FaMusic /> },
-    { title: "Projects", imgSrc: "https://picsum.photos/seed/innovation/250/200", route: "/projects", icon: <FaProjectDiagram /> },
-    { title: "Reading", imgSrc: "https://picsum.photos/seed/books/250/200", route: "/reading", icon: <FaBook /> },
-    { title: "Contact Me", imgSrc: "https://picsum.photos/seed/connect/250/200", route: "/contact-me", icon: <FaEnvelope /> },
-    { title: "Certifications", imgSrc: "https://picsum.photos/seed/medal/250/200", route: "/certifications", icon: <FaCertificate /> }
+  explorer: [
+    { title: "Travel Stories", imgSrc: "https://picsum.photos/seed/travel/250/200", icon: <FaGlobeAmericas />, route: "/travel" },
+    { title: "Photography", imgSrc: "https://picsum.photos/seed/photos/250/200", icon: <FaCamera />, route: "/photography" },
+    { title: "Adventures", imgSrc: "https://picsum.photos/seed/adventure/250/200", icon: <FaGlobeAmericas />, route: "/adventures" }
   ]
 };
-
 
 const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
   const navigate = useNavigate();
@@ -52,12 +35,12 @@ const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
     <div className="top-picks-row">
       <h2 className="row-title">Today's Top Picks for {profile}</h2>
       <div className="card-row">
-      {topPicks.map((pick, index) => (
+        {topPicks.map((pick, index) => (
           <div 
             key={index} 
             className="pick-card" 
             onClick={() => navigate(pick.route)}
-            style={{ animationDelay: `${index * 0.2}s` }} // Adding delay based on index
+            style={{ animationDelay: `${index * 0.2}s` }}
           >
             <img src={pick.imgSrc} alt={pick.title} className="pick-image" />
             <div className="overlay">
